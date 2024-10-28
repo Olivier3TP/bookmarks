@@ -7,7 +7,7 @@ class LoginForm(forms.Form):
     password = forms.CharField(widget=forms.PasswordInput)
 
 class UserRegistrationForm(forms.ModelForm):
-    password1 = forms.CharField(widget=forms.PasswordInput, label="Hasło")
+    password = forms.CharField(widget=forms.PasswordInput, label="Hasło")
     password2 = forms.CharField(widget=forms.PasswordInput, label="Powtórz hasło")
 
     class Meta:
@@ -16,6 +16,6 @@ class UserRegistrationForm(forms.ModelForm):
 
     def clean_password2(self):
         cd = self.cleaned_data
-        if cd['password1'] != cd['password2']:
+        if cd['password'] != cd['password2']:
             raise  forms.ValidationError("Hasła nie są identyczne")
         return cd['password2']

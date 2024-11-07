@@ -31,4 +31,5 @@ class ProfileEditForm(forms.ModelForm):
     class Meta:
         model = Profile
         fields = ['date_of_birth', 'photo']
+        labels = {'date_of_birth': 'Data urodzenia', 'photo': 'Zdjęcie'}
 
